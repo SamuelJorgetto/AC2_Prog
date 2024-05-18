@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Lateral com Atividades</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            margin: 0;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+        }
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <a href="#" data-target="tags-html">Tags HTML</a>
+        <a href="#" data-target="css-fundamentos">CSS Fundamentos</a>
+        <a href="#" data-target="flexbox">Flexbox</a>
+        <a href="#" data-target="dom">DOM</a>
+    </div>
+
+    <div class="content">
+        <div id="tags-html" class="hidden">
+            <h2>Tags HTML</h2>
+            <p>Conteúdo sobre tags HTML...</p>
+        </div>
+        <div id="css-fundamentos" class="hidden">
+            <h2>CSS Fundamentos</h2>
+            <p>Conteúdo sobre fundamentos de CSS...</p>
+        </div>
+        <div id="flexbox" class="hidden">
+            <h2>Flexbox</h2>
+            <p>Conteúdo sobre Flexbox...</p>
+        </div>
+        <div id="dom" class="hidden">
+            <h2>DOM</h2>
+            <p>Conteúdo sobre DOM...</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('.sidebar a');
+            const contents = document.querySelectorAll('.content > div');
+
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('data-target');
+                    
+                    contents.forEach(content => {
+                        if (content.id === targetId) {
+                            content.classList.remove('hidden');
+                        } else {
+                            content.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>

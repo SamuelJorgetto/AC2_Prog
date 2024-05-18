@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Cor da Div</title>
+    <style>
+        .color-box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="changeColorButton">Mudar Cor</button>
+    <div id="colorBox" class="color-box"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const colors = ['red', 'green', 'blue', 'yellow', 'purple'];
+            const button = document.getElementById('changeColorButton');
+            const colorBox = document.getElementById('colorBox');
+
+            button.addEventListener('click', function() {
+                const randomIndex = Math.floor(Math.random() * colors.length);
+                colorBox.style.backgroundColor = colors[randomIndex];
+            });
+        });
+    </script>
+    
+</body>
+</html>

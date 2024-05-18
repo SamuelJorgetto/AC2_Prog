@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Funcionário</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Cadastro de Funcionário</h1>
+    <form id="cadastroFuncionario">
+        <h2>Dados Pessoais</h2>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" name="cpf" required>
+
+        <label for="rg">RG:</label>
+        <input type="text" id="rg" name="rg" required>
+
+        <h2>Cargo</h2>
+        <label for="cargo">Nome do Cargo:</label>
+        <select id="cargo" name="cargo" required></select>
+        <label for="salario">Salário:</label>
+        <input type="text" id="salario" name="salario" readonly>
+
+        <h2>Setor</h2>
+        <label for="setor">Sigla do Setor:</label>
+        <select id="setor" name="setor" required></select>
+        <label for="nomeSetor">Nome do Setor:</label>
+        <input type="text" id="nomeSetor" name="nomeSetor" readonly>
+
+        <h2>Convênio</h2>
+        <label for="convenio">Nome do Convênio:</label>
+        <select id="convenio" name="convenio" required></select>
+        <label for="valorTitular">Valor para o Titular:</label>
+        <input type="text" id="valorTitular" name="valorTitular" readonly>
+        <label for="valorDependente">Valor para o Dependente:</label>
+        <input type="text" id="valorDependente" name="valorDependente" readonly>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simples</title>
+    <style>
+        .input-field {
+            margin: 5px;
+        }
+        .button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <input type="number" id="number1" class="input-field" placeholder="Digite o primeiro número">
+        <input type="number" id="number2" class="input-field" placeholder="Digite o segundo número">
+    </div>
+    <div>
+        <button id="addButton" class="button">Somar</button>
+        <button id="subtractButton" class="button">Subtrair</button>
+        <button id="multiplyButton" class="button">Multiplicar</button>
+        <button id="divideButton" class="button">Dividir</button>
+    </div>
+    <div id="result" class="input-field">Resultado: </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const number1 = document.getElementById('number1');
+            const number2 = document.getElementById('number2');
+            const result = document.getElementById('result');
+
+            const addButton = document.getElementById('addButton');
+            const subtractButton = document.getElementById('subtractButton');
+            const multiplyButton = document.getElementById('multiplyButton');
+            const divideButton = document.getElementById('divideButton');
+
+            function getNumbers() {
+                const num1 = parseFloat(number1.value);
+                const num2 = parseFloat(number2.value);
+
+                if (isNaN(num1) || isNaN(num2)) {
+                    alert('Por favor, digite números válidos.');
+                    return null;
+                }
+
+                return [num1, num2];
+            }
+
+            addButton.addEventListener('click', function() {
+                const numbers = getNumbers();
+                if (numbers) {
+                    const [num1, num2] = numbers;
+                    result.textContent = 'Resultado: ' + (num1 + num2);
+                }
+            });
+
+            subtractButton.addEventListener('click', function() {
+                const numbers = getNumbers();
+                if (numbers) {
+                    const [num1, num2] = numbers;
+                    result.textContent = 'Resultado: ' + (num1 - num2);
+                }
+            });
+
+            multiplyButton.addEventListener('click', function() {
+                const numbers = getNumbers();
+                if (numbers) {
+                    const [num1, num2] = numbers;
+                    result.textContent = 'Resultado: ' + (num1 * num2);
+                }
+            });
+
+            divideButton.addEventListener('click', function() {
+                const numbers = getNumbers();
+                if (numbers) {
+                    const [num1, num2] = numbers;
+                    if (num2 === 0) {
+                        alert('Impossível dividir por zero');
+                    } else {
+                        result.textContent = 'Resultado: ' + (num1 / num2);
+                    }
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>

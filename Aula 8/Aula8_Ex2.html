@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>To-Do List</title>
+</head>
+<body>
+	<input type="text" id="task-input">
+	<button id="add-btn">Adicionar</button>
+	<ul id="task-list"></ul>
+
+	<script>
+		const input = document.getElementById('task-input');
+		const btn = document.getElementById('add-btn');
+		const list = document.getElementById('task-list');
+
+		btn.addEventListener('click', () => {
+			const task = input.value;
+			if (task) {
+				const li = document.createElement('li');
+				li.textContent = task;
+				list.appendChild(li);
+				input.value = '';
+			}
+		});
+	</script>
+</body>
+</html>
